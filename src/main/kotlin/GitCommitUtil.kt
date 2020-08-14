@@ -109,7 +109,7 @@ object GitCommitUtil {
                 addCommand.addFilepattern(it)
             }
             addCommand.call()
-            git.commit()
+            git.commit().setAuthor("guobao_zhou","guobao_zhou@intsig.net")
                 .setMessage("$MESSAGE_PREFIX $oldCommitId <-> $newCommitId")
                 .call()
             val password = "WmhvdXppZGFuMjAxMl8="
