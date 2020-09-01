@@ -35,7 +35,7 @@ object GitCommitUtil {
 
     fun getOldCommit(projectPath: String):String{
         val repository = getRepository(projectPath)
-        val countOfCommit = Math.min(300,Git(repository).log().all().call().count())
+        val countOfCommit = Math.min(1000,Git(repository).log().all().call().count())
         Git(repository).log().setMaxCount(countOfCommit).call().forEachIndexed { index, revCommit ->
             if (revCommit.shortMessage.startsWith(MESSAGE_PREFIX)){
                 println("getOldCommit ${revCommit.shortMessage} ${revCommit.id.name} ${revCommit.commitTime}")
