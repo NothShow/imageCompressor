@@ -109,11 +109,11 @@ object GitCommitUtil {
                 addCommand.addFilepattern(it)
             }
             addCommand.call()
-            git.commit().setAuthor("guobao_zhou","guobao_zhou@intsig.net")
+            git.commit().setAuthor("zhouguobao","zhouguobao@zhaodao88.com")
                 .setMessage("$MESSAGE_PREFIX $oldCommitId <-> $newCommitId")
                 .call()
             val password = "WmhvdXppZGFuMjAxMl8="
-            val usernamePasswordCredentialsProvider = UsernamePasswordCredentialsProvider("guobao_zhou@intsig.net",String(Base64.getDecoder().decode(password)))
+            val usernamePasswordCredentialsProvider = UsernamePasswordCredentialsProvider("zhouguobao",String(Base64.getDecoder().decode(password)))
             val branchName = "Robot_Image_Compress_"+System.currentTimeMillis()
             val ref = git.branchCreate().setName(branchName).call()
             git.push().add(ref).setCredentialsProvider(usernamePasswordCredentialsProvider).call()
@@ -122,6 +122,5 @@ object GitCommitUtil {
 
     @JvmStatic
     fun main(args: Array<String>) {
-
     }
 }
